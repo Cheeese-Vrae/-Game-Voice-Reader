@@ -45,7 +45,7 @@ Game Voice Reader lets you capture in-game text using a red selection box and ha
 If you want to change the default trigger key (F10) to something else:
 
 1. Run the script: Remap Game Voice Reader Key.ahk
-2. Enter your desired key (e.g., F12, XButton2, Space).
+2. Press your desired key (e.g., F12, XButton2, Space).
 3. The script will automatically update Game Voice Reader.ahk with your new key.
 4. Done! You can now use your preferred key to activate the red box.
 
