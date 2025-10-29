@@ -63,7 +63,7 @@ Loop {
 			Highlight(x - w // 2, y - h // 2, w, h, "Red")
 		}
 
-		if GetKeyState("F10", "P") {
+		if GetKeyState("LButton", "P") {
 			if (!inArea) {
 				bX := x
 				bY := y
@@ -77,7 +77,7 @@ Loop {
 			}
 		}
 
-		if !GetKeyState("F10", "P") || GetKeyState("F10", "P") {
+		if !GetKeyState("F7", "P") || GetKeyState("LButton", "P") {
 			if hbuffer > 0 {
 				prevClip := A_Clipboard
 				A_Clipboard := ""
