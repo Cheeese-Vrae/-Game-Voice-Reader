@@ -2,13 +2,10 @@
 
 scriptPath := "C:\OCR\Game Voice Reader.ahk"
 
-; Show input box and capture result object
+; Prompt user for new key
 result := InputBox("Enter the new key to trigger OCR (e.g., F12, XButton2, Space):", "Remap Action Key")
-
-; Extract the actual string value
 newKey := result.Value
 
-; If user cancels or enters nothing
 if newKey == "" {
     MsgBox("Remapping cancelled.")
     ExitApp
@@ -21,11 +18,12 @@ try {
     ExitApp
 }
 
-; Replace KeyWait line
+; Replace only the KeyWait line
 newScript := RegExReplace(scriptText, 'KeyWait\s+"[^"]+",\s*"D"', 'KeyWait "' . newKey . '", "D"')
 
-; Replace GetKeyState line
-newScript := RegExReplace(newScript, 'GetKeyState\("([^"]+)",\s*"P"\)', 'GetKeyState("' . newKey . '", "P")')
+; Replace only the GetKeyState line that matches the KeyWait key
+; This line looks like: if !GetKeyState("F10", "P")
+newScript := RegExReplace(newScript, 'if\s+!GetKeyState\("F10",\s*"P"\)', 'if !GetKeyState("' . newKey . '", "P")')
 
 try {
     FileDelete(scriptPath)
