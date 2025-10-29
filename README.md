@@ -54,3 +54,5 @@ If something isn’t working as expected, double-check:
 - That the OCR folder is in C:\OCR
 - That Edge is open and on the correct tab
 - That your game is not in exclusive full-screen mode
+
+Many thanks to the original https://github.com/KnightDevRedEmber/GameVoiceReader, from which this script takes a great inspiration!
