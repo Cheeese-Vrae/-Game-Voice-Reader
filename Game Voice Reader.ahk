@@ -3,6 +3,8 @@
 InstallKeybdHook 1, 1
 #UseHook 1
 
+triggerKey := "MButton"  ; Remapping script will update this line
+
 CoordMode "Mouse", "Screen"
 CoordMode "ToolTip", "Screen"
 
@@ -17,7 +19,7 @@ Loop {
 	if toRun == 0 {
 		hbuffer := 8
 		Suspend 1
-		KeyWait "F10", "D"
+		KeyWait triggerKey, "D"
 		MouseGetPos(&x, &y)
 		cX := x
 		cY := y
@@ -77,7 +79,7 @@ Loop {
 			}
 		}
 
-		if !GetKeyState("F7", "P") || GetKeyState("LButton", "P") {
+		if !GetKeyState(triggerKey, "P") || GetKeyState("LButton", "P") {
 			if hbuffer > 0 {
 				prevClip := A_Clipboard
 				A_Clipboard := ""
@@ -116,7 +118,7 @@ Loop {
 				Send "^a"
 				Sleep 100
 				Send "^+u"
-				Sleep 1500  ; ✅ Delay to ensure reading starts
+				Sleep 1500
 
 				toSay := ""
 				WinActivate prevWin
